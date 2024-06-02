@@ -12,4 +12,7 @@ public class CartPageLocators {
     
     @FindBy(id = "continue-shopping")
     public WebElement continueShoppingBtn;
+    
+    @FindBy(id = "remove-sauce-labs-backpack")
+    public WebElement removeProductFromCartBtn;
 }

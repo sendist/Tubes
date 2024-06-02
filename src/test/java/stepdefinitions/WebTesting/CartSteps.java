@@ -23,8 +23,30 @@ public class CartSteps {
         objCart.goToCartStep();
 	}
 
-    // @When("User clicks the Continue Shopping button")
-	// public void user_clicks_the_continue_shopping_button() {
-	// 	objHome.addToCartStep();
-	// }
+    @When("User clicks the Continue Shopping button")
+	public void user_clicks_the_continue_shopping_button() {
+		objCart.goToContinueShoppingStep();
+	}
+
+    @Then("The user will be redirected to the dashboard page with the title Products")
+	public void the_user_will_be_redirected_to_the_dashboard_page_with_the_title_products() {
+		Assert.assertTrue(objHome.getDashboard().isDisplayed());
+	}
+
+    @Given("There is at least one product in the cart")
+	public void there_is_at_least_one_product_in_the_cart() {
+		this.user_clicks_the_continue_shopping_button();
+        objHome.addToCartStep();
+        objCart.goToCartStep();
+	}
+
+    @When("The user clicks the Remove button on the product which wants to remove from the cart")
+	public void the_user_clicks_the_remove_button_on_the_product_which_wants_to_remove_from_the_cart() {
+		objCart.removeProductFromCartStep();
+	}
+
+    @Then("User should not be able to see deleted products anymore")
+	public void user_should_not_be_able_to_see_deleted_products_anymore() {
+		// Assert.assertTrue(objHome.getDashboard().isDisplayed());
+	}
 }
