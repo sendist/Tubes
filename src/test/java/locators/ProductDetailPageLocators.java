@@ -24,4 +24,10 @@ public class ProductDetailPageLocators {
 
     @FindBy(className = "shopping_cart_link")
     public WebElement cartLink;
+
+    @FindBy(className = "inventory_item_name")
+    public WebElement inventoryItemName;
+
+    @FindBy(className = "cart_list")
+    public WebElement cartList;
 }

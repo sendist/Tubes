@@ -50,8 +50,20 @@ public class ProductDetailPageActions {
     return productDetailLocators.itemCartCountBadge;
   }
 
+  public WebElement getCartLink() {
+    return productDetailLocators.cartLink;
+  }
+
   public int getItemCartCount() {
     return productDetailLocators.cartLink.findElements(By.xpath("./*")).size();
+  }
+
+  public String getInventoryItemName() {
+    return productDetailLocators.inventoryItemName.getText();
+  }
+
+  public int getCartListCount() {
+    return productDetailLocators.cartList.findElements(By.xpath("./*")).size();
   }
 
 }

@@ -72,4 +72,15 @@ public class ProductDetailSteps {
         Assert.assertTrue(objProductDetail.getItemCartCount() == 0);
     }
 
+    @Then("The product appears in the cart list")
+    public void the_product_appears_in_the_cart_list() {
+        objProductDetail.getCartLink().click();
+        Assert.assertEquals(objProductDetail.getInventoryItemName(), "Sauce Labs Onesie");
+    }
+
+    @Then("The product is removed from the cart list")
+    public void the_product_is_removed_from_the_cart_list() {
+        objProductDetail.getCartLink().click();
+        Assert.assertTrue(objProductDetail.getCartListCount() <= 2);
+    }
 }
