@@ -15,6 +15,7 @@ Feature: Product Detail
         When The user clicks the "Add to Cart" button
         Then The user sees the "Add to Cart" button change to a red "Remove" button
         And The cart/trolley icon shows an incremented item count with a red background
+        And The product appears in the cart list
 
     @RemoveProductfromCartbyClicking"Remove"onProductDetailPage @TC06
     Scenario: Remove Product from Cart by Clicking "Remove" on Product Detail Page
@@ -22,3 +23,4 @@ Feature: Product Detail
         When The user clicks the red "Remove" button
         Then The user sees the "Remove" button change to an "Add to Cart" button
         And The cart/trolley icon shows a decremented item count with a red background
+        And The product is removed from the cart list
