@@ -22,4 +22,9 @@ public class CartPageActions {
     public void goToCartStep() {
         cartPageLocators.cartBtn.click();
     }
+
+    public void getCheckoutBtn() {
+        cartPageLocators.checkoutBtn.click();
+    }
+
 }
