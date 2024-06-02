@@ -3,8 +3,8 @@ Feature: End to End
   Background:
     Given User is on Swag Labs Login page
 
-  @ValidAccount @TC01
-  Scenario: End to End Swablabs 
+  @EndToEnd @TC01
+  Scenario: End to End Swag Labs 
     When User enters username as "standard_user" and password as "secret_sauce"
     Then User should be redirected to the Dashboard
     When The user clicks the Add to Cart button for a product

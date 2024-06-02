@@ -8,13 +8,13 @@ Feature: Menu
         When The user click the three-striped pad icon
         Then User shold be able to see a sidebar menu
 
-    @NavigateToTheAboutPage @TC02
+    @NavigateToTheAboutPage @TC03
     Scenario: Navigate to the about page
         When The user click the three-striped pad icon
         And The user click the “About” menu on the sidebar
         Then User will be navigated to the saucelabs website
     
-    @CloseSidebarMenu @TC02
+    @CloseSidebarMenu @TC04
     Scenario: Close Sidebar Menu
         When The user click the three-striped pad icon
         And The user click close button on the sidebar

@@ -10,7 +10,7 @@ Feature: Checkout
         Then User should be redirected to the Shipping Information page
         And User should see an overview of the items purchased
 
-    @CompletingCheckoutProcessByClickingFinishButton @TC01
+    @CompletingCheckoutProcessByClickingFinishButton @TC02
     Scenario: Completing checkout process by clicking Finish button
         Given User has clicked the Checkout button on the Cart page
         And User has filled out the form on the Checkout Information page with valid data
@@ -19,7 +19,7 @@ Feature: Checkout
         And User should see "Thank you for your order!" message on the Checkout Complete page
         And There should be a "Back To Home" button on the Checkout Complete page
 
-    @ClickingBackToHomeButtonOnCheckoutCompletePage @TC01
+    @ClickingBackToHomeButtonOnCheckoutCompletePage @TC03
     Scenario: Clicking "Back To Home" button on Checkout Complete page
         Given User has clicked the Checkout button on the Cart page
         And User has filled out the form on the Checkout Information page with valid data
