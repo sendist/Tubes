@@ -35,16 +35,16 @@ public class UpdateUserSteps {
                 payload.put("title", updateTitle);
                 payload.put("firstName", updateFirstNameTC01);
                 break;
-            case "TC06":
+            case "TC02":
                 payload.put("lastName", updateLastName);
                 break;
-            case "TC07":
+            case "TC03":
                 payload.put("gender", updateGender);
                 break;
-            case "TC09":
+            case "TC04":
                 payload.put("dateOfBirth", updateDateOfBirth);
                 break;
-            case "TC19":
+            case "TC05":
                 payload.put("firstName", updateFirstNameTC19);
                 break;
             default:
