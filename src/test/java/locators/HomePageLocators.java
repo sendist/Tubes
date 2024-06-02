@@ -21,4 +21,14 @@ public class HomePageLocators {
 
     @FindBy(className = "shopping_cart_badge")
     public WebElement notification;
+
+    @FindBy(className = "bm-menu")
+    public WebElement Menu;
+
+    @FindBy(id = "about_sidebar_link")
+    public WebElement AboutBtn;
+
+    @FindBy(id = "react-burger-cross-btn")
+    public WebElement CloseBtn;
+
 }
