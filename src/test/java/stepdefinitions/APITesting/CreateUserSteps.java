@@ -25,7 +25,7 @@ public class CreateUserSteps {
         String firstName = "Daffa";
         String lastName = "Raihandika";
         String gender = "female";
-        String email = "daffa9999@example.com";
+        String email = "daffa9998@example.com";
         String dateOfBirth = "1990-01-01";
         String phone = "08127387812";
         String picture = "https://example.com/picture.jpg";
@@ -78,6 +78,17 @@ public class CreateUserSteps {
                 .header("app-id", "invalid-app-id");
    }
 
+   @Given("Set valid app-id in header")
+   public void set_valid_app_id_in_header() {
+        this.request.given()
+                .header("app-id", "6627132f6cae03d7fddee77b");
+   }
+
+   @Given("Set first name to blank")
+   public void set_first_name_to_blank() {
+        globalPayload.put("firstName", "");
+   }
+
    @When("hit POST create user API")
    public void hit_post_user_create_api() {
         response = this.request
@@ -99,10 +110,52 @@ public class CreateUserSteps {
                 .body("error", equalTo("APP_ID_NOT_EXIST"));
    }
 
+   @Then("User gets a response body with error field containing message \"BODY_NOT_VALID\"")
+   public void user_gets_a_response_body_with_error_field_containing_message_body_not_valid() {
+        response.then()
+                .assertThat()
+                .body("error", equalTo("BODY_NOT_VALID"));
+   }
+
    @Then("User get status code 403 Forbidden")
    public void user_get_status_code_403_forbidden() {
         response.then()
                 .assertThat()
                 .statusCode(403);
+   }
+
+   @Then("User get status code 200 OK")
+   public void user_get_status_code_200_ok() {
+        response.then()
+                .assertThat()
+                .statusCode(200);
+   }
+
+   @Then("User get status code 400 Bad Request")
+   public void user_get_status_code_400_bad_request() {
+        response.then()
+                .assertThat()
+                .statusCode(400);
+   }
+
+   @Then("User gets a response body containing the newly added user data")
+   public void user_gets_a_response_body_containing_the_newly_added_user_data() {
+        String email = (String) globalPayload.get("email");
+        response.then()
+                .assertThat()
+                .statusCode(200)
+                .body("title", equalTo("ms"))
+                .body("firstName", equalTo("Daffa"))
+                .body("lastName", equalTo("Raihandika"))
+                .body("gender", equalTo("female"))
+                .body("email", equalTo(email))
+                .body("dateOfBirth", equalTo("1990-01-01T00:00:00.000Z"))
+                .body("phone", equalTo("08127387812"))
+                .body("picture", equalTo("https://example.com/picture.jpg"))
+                .body("location.street", equalTo("123 Example St"))
+                .body("location.city", equalTo("Exampleville"))
+                .body("location.state", equalTo("Examplestate"))
+                .body("location.country", equalTo("Exampleland"))
+                .body("location.timezone", equalTo("+7:00"));
    }
 }
