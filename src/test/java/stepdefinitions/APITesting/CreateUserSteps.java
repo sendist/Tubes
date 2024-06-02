@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import utils.HelperClass;
 
 import org.checkerframework.checker.nullness.qual.AssertNonNullIfNonNull;
@@ -16,6 +17,7 @@ public class CreateUserSteps {
 
     private JSONObject globalPayload;
     private Response response;
+    private RequestSpecification request;
 
     public JSONObject getPayload() {
         // Test Data
@@ -23,7 +25,7 @@ public class CreateUserSteps {
         String firstName = "Daffa";
         String lastName = "Raihandika";
         String gender = "female";
-        String email = "daffa@example.com";
+        String email = "daffa9999@example.com";
         String dateOfBirth = "1990-01-01";
         String phone = "08127387812";
         String picture = "https://example.com/picture.jpg";
@@ -51,7 +53,6 @@ public class CreateUserSteps {
         return payload;
     }
 
-
    @Given("DummyAPI server is up") 
    public void dummyapi_server_is_up() {
        Assert.assertTrue(HelperClass.isServerRunning("https://dummyapi.io/"));
@@ -62,16 +63,24 @@ public class CreateUserSteps {
        RestAssured.baseURI = "https://dummyapi.io/data/v1";
    }
 
-   @When("Prepare JSON payload")
+   @Given("Prepare JSON payload")
    public void prepare_json_payload() {
         this.globalPayload = getPayload();
+        this.request = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(globalPayload.toJSONString());
+
+   }
+
+   @Given("Set invalid app-id in header")
+   public void set_invalid_app_id_in_header() {
+        this.request.given()
+                .header("app-id", "invalid-app-id");
    }
 
    @When("hit POST create user API")
    public void hit_post_user_create_api() {
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .body(globalPayload.toJSONString())
+        response = this.request
                 .when()
                 .post("/user/create");
    }
@@ -81,6 +90,13 @@ public class CreateUserSteps {
         response.then()
                 .assertThat()
                 .body("error", equalTo("APP_ID_MISSING"));
+   }
+
+   @Then("User get response body with error field containing message \"APP_ID_NOT_EXIST\"")
+   public void user_get_response_body_with_error_field_containing_message_app_id_not_exist() {
+        response.then()
+                .assertThat()
+                .body("error", equalTo("APP_ID_NOT_EXIST"));
    }
 
    @Then("User get status code 403 Forbidden")
