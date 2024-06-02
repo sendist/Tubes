@@ -30,4 +30,7 @@ public class HomePageActions {
         homePageLocators.addToCartBtn.click();
     }
 
+    public WebElement getNotification() {
+        return(homePageLocators.notification);
+    }
 }
