@@ -21,4 +21,7 @@ public class ProductDetailPageLocators {
 
     @FindBy(className = "shopping_cart_badge")
     public WebElement itemCartCountBadge;
+
+    @FindBy(className = "shopping_cart_link")
+    public WebElement cartLink;
 }

@@ -2,6 +2,7 @@ package actions;
 
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -47,6 +48,10 @@ public class ProductDetailPageActions {
 
   public WebElement getItemCartCountBadge() {
     return productDetailLocators.itemCartCountBadge;
+  }
+
+  public int getItemCartCount() {
+    return productDetailLocators.cartLink.findElements(By.xpath("./*")).size();
   }
 
 }

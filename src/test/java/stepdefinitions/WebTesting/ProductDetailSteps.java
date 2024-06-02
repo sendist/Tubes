@@ -69,7 +69,7 @@ public class ProductDetailSteps {
 
     @Then("The cart\\/trolley icon shows a decremented item count with a red background")
     public void the_cart_trolley_icon_shows_a_decremented_item_count_with_a_red_background() {
-        Assert.assertTrue(objProductDetail.isCartCountBadgeDisplayed() == false);
+        Assert.assertTrue(objProductDetail.getItemCartCount() == 0);
     }
 
 }
