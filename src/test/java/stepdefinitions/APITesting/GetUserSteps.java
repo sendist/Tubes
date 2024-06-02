@@ -4,49 +4,48 @@ import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import static org.hamcrest.Matchers.equalTo;
 
-import org.apiguardian.api.API;
-
 public class GetUserSteps {
     private Response response;
+    private RequestSpecification request;
+
+    @Given("Set Valid Id")
+    public void set_valid_id() {
+            this.request = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .pathParam("id", "6637c63610f9d46c3543f735");
+    }
+
+    @Given("Set Valid Id and Invalid App-Id")
+    public void set_valid_id_and_invalid_app_id() {
+            this.request = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .pathParam("id", "6637c63610f9d46c3543f735")
+                .header("app-id", "60d0fe4f5311236168a109ca");
+    }
+
+    @Given("Set Valid Id and Valid App-Id")
+    public void set_valid_id_and_valid_app_id() {
+            this.request = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .pathParam("id", "6637c63610f9d46c3543f735")
+                .header("app-id", "6627132f6cae03d7fddee77b");
+    }
+
+    @Given("Set Invalid Id and Valid App-Id")
+    public void set_invalid_id_and_valid_app_id() {
+            this.request = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .pathParam("id", "6637c63610f9d46c3543f725")
+                .header("app-id", "6627132f6cae03d7fddee77b");
+    }
 
     @When("hit GET user by Id")
     public void hit_get_user_by_id_API() {
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .pathParam("id", "6637c63610f9d46c3543f735")
-                .when()
-                .get("/user/{id}");
-    }
-
-    @When("hit GET user by Id and Invalid App Id")
-    public void hit_get_user_by_id_and_invalid_app_id() {
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .header("app-id", "60d0fe4f5311236168a109ca")
-                .pathParam("id", "6637c63610f9d46c3543f735")
-                .when()
-                .get("/user/{id}");
-    }
-
-    @When("hit GET user by Id and valid App Id")
-    public void hit_get_user_by_id_and_valid_app_id() {
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .header("app-id", "6627132f6cae03d7fddee77b")
-                .pathParam("id", "6637c63610f9d46c3543f735")
-                .when()
-                .get("/user/{id}");
-    }
-
-    @When("hit GET user by valid Id and invalid App Id")
-    public void hit_get_user_by_valid_id_and_invalid_app_id() {
-        response = RestAssured.given()
-                .contentType(ContentType.JSON)
-                .header("app-id", "6627132f6cae03d7fddee77b")
-                .pathParam("id", "6637c63610f9d46c3543f725")
+        response = this.request
                 .when()
                 .get("/user/{id}");
     }
