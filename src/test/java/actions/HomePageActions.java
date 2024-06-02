@@ -26,4 +26,8 @@ public class HomePageActions {
         return(homePageLocators.logoutButton);
     }
 
+    public void addToCartStep() {
+        homePageLocators.addToCartBtn.click();
+    }
+
 }

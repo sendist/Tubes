@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.WebTesting;
 
 import actions.HomePageActions;
 import actions.LoginPageActions;
