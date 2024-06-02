@@ -12,4 +12,13 @@ public class HomePageLocators {
 
     @FindBy(id = "logout_sidebar_link")
     public WebElement logoutButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    public WebElement addToCartBtn;
+
+    @FindBy(id = "remove-sauce-labs-backpack")
+    public WebElement removeBtn;
+
+    @FindBy(className = "shopping_cart_badge")
+    public WebElement notification;
 }
