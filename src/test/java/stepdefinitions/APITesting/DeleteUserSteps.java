@@ -13,7 +13,7 @@ public class DeleteUserSteps {
 
     private String validAppId = "665c6e4627e8716117d6e02b";
     private String invalidAppId = "appIdTidakValid";
-    private String validUserId = "665c81974fd179ca12767596";
+    private String validUserId = "665cb1f94fd179a399768b2d";
     private String invalidUserId = "665c78404fd1798edf766f69";
 
     @Given("Prepare delete user request without app-id header")
