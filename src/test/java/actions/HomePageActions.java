@@ -49,4 +49,16 @@ public class HomePageActions {
     public WebElement getProductDetail() {
         return(homePageLocators.ProductDetail);
     }
+
+    public WebElement getSidebarMenu() {
+        return (homePageLocators.Menu);
+    }
+
+    public WebElement getAbout() {
+        return (homePageLocators.AboutBtn);
+    }
+
+    public WebElement getCloseBtn() {
+        return (homePageLocators.CloseBtn);
+    }
 }

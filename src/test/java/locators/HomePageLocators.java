@@ -27,4 +27,14 @@ public class HomePageLocators {
 
     @FindBy(className = "inventory_details")
     public WebElement ProductDetail;
+
+    @FindBy(className = "bm-menu")
+    public WebElement Menu;
+
+    @FindBy(id = "about_sidebar_link")
+    public WebElement AboutBtn;
+
+    @FindBy(id = "react-burger-cross-btn")
+    public WebElement CloseBtn;
+
 }
