@@ -35,4 +35,28 @@ public class DashboardSteps {
 		Assert.assertTrue(objHome.getNotification().isDisplayed());
 	}
 
+    @Given("The user has at least one product in the cart")
+	public void the_user_has_at_least_one_product_in_the_cart() {
+		objHome.addToCartStep();
+	}
+
+    @When("The user clicks the Remove button for a product")
+	public void the_user_clicks_the_remove_button_for_a_product() {
+		objHome.removeProductStep();
+	}
+    
+    @Then("The user sees the Remove button change to an Add to Cart button")
+	public void the_user_sees_the_remove_button_change_to_an_add_to_cart_button() {
+        Assert.assertTrue(objHome.getAddToCartBtn().isDisplayed());
+	}
+    
+    @When("The user clicks a product name in the catalog")
+    public void the_user_clicks_a_product_name_in_the_catalog() {
+        objHome.clickProductNameInCatalogStep();
+    }
+
+    @Then("The user is navigated to the Product Detail page")
+	public void the_user_is_navigated_to_the_product_detail_page() {
+        Assert.assertTrue(objHome.getProductDetail().isDisplayed());
+	}
 }

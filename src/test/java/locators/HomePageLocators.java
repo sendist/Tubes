@@ -21,4 +21,10 @@ public class HomePageLocators {
 
     @FindBy(className = "shopping_cart_badge")
     public WebElement notification;
+
+    @FindBy(className = "inventory_item_name")
+    public WebElement productName;
+
+    @FindBy(className = "inventory_details")
+    public WebElement ProductDetail;
 }
