@@ -15,4 +15,16 @@ public class CartPageLocators {
     
     @FindBy(id = "remove-sauce-labs-backpack")
     public WebElement removeProductFromCartBtn;
+    
+    @FindBy(id = "checkout")
+    public WebElement checkoutBtn;
+    
+    @FindBy(className = "inventory_item_name")
+    public WebElement productName;
+    
+    @FindBy(className = "inventory_item_desc")
+    public WebElement productDesc;
+    
+    @FindBy(className = "inventory_item_price")
+    public WebElement productPrice;
 }

@@ -11,5 +11,16 @@ Feature: Cart
   @RemovingAProductFromCart @TC06
   Scenario: Removing a product from cart
     Given There is at least one product in the cart
-    When The user clicks the Remove button on the product which wants to remove from the cart
+    When User clicks on the cart icon 
+    And The user clicks the Remove button on the product which wants to remove from the cart
     Then User should not be able to see deleted products anymore
+  
+  @VerifyCartPageWithAtLeastOneProductInTheCart @TC02
+  Scenario: Verify cart page with at least one product in the cart
+    Given There is at least one product in the cart
+    And User is on the dashboard page
+    When User clicks on the cart icon
+    Then User will be navigated to the cart page
+    And User will see information product in the cart
+  
+  
