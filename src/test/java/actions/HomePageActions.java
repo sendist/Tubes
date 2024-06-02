@@ -33,4 +33,32 @@ public class HomePageActions {
     public WebElement getNotification() {
         return(homePageLocators.notification);
     }
+
+    public void removeProductStep() {
+        homePageLocators.removeBtn.click();
+    }
+
+    public WebElement getAddToCartBtn() {
+        return(homePageLocators.addToCartBtn);
+    }
+
+    public void clickProductNameInCatalogStep() {
+        homePageLocators.productName.click();
+    }
+
+    public WebElement getProductDetail() {
+        return(homePageLocators.ProductDetail);
+    }
+
+    public WebElement getSidebarMenu() {
+        return (homePageLocators.Menu);
+    }
+
+    public WebElement getAbout() {
+        return (homePageLocators.AboutBtn);
+    }
+
+    public WebElement getCloseBtn() {
+        return (homePageLocators.CloseBtn);
+    }
 }
