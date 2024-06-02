@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags = "", features = "src/test/resources/APITesting/CreateUser.feature", glue = {
+@CucumberOptions(tags = "", features = "src/test/resources/APITesting/GetUser.feature", glue = {
                 "stepdefinitions" }, monochrome = true, plugin = { "html:target/HtmlReports/report.html",
                                 "json:target/JSonReports/report.json",
                                 "junit:target/JUnitReports/report.xml",
