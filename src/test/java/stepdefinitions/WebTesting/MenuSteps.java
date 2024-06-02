@@ -20,13 +20,15 @@ public class MenuSteps {
 	}
 
     @When("The user click the three-striped pad icon")
-    public void the_user_click_three_striped_pad_icon() {
+    public void the_user_click_three_striped_pad_icon() throws InterruptedException {
         objHome.getSideBarButton().click();
+        Thread.sleep(2000);
     }
 
     @Then("User shold be able to see a sidebar menu")
-	public void user_should_be_able_to_see_a_sidebar_menu() {
+	public void user_should_be_able_to_see_a_sidebar_menu() throws InterruptedException  {
 		Assert.assertTrue(objHome.getSidebarMenu().isDisplayed());
+        Thread.sleep(2000);
 	}
 
     @When("The user click the “About” menu on the sidebar")

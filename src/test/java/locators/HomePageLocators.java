@@ -34,7 +34,7 @@ public class HomePageLocators {
     @FindBy(id = "about_sidebar_link")
     public WebElement AboutBtn;
 
-    @FindBy(id = "react-burger-cross-btn")
+    @FindBy(className = "bm-cross-button")
     public WebElement CloseBtn;
 
 }

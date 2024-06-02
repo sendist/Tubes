@@ -46,4 +46,9 @@ public class CartPageActions {
     public WebElement getProductPrice() {
         return(cartPageLocators.productPrice);
     }
+
+    public void getCheckoutBtn() {
+        cartPageLocators.checkoutBtn.click();
+    }
+
 }
