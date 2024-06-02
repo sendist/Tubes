@@ -1,7 +1,12 @@
 package utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.NoSuchElementException;
 
 public class HelperClass {
     private static HelperClass helperClass;
@@ -41,5 +46,20 @@ public class HelperClass {
 
     public static String getCurrentUrl() {
         return getDriver().getCurrentUrl();
+    }
+
+    public static boolean isServerRunning(String serverUrl) {
+        try {
+            URL url = new URL(serverUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.connect();
+
+            int responseCode = connection.getResponseCode();
+            return (200 <= responseCode && responseCode <= 399);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
